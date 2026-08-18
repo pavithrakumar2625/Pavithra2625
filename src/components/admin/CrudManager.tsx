@@ -114,11 +114,11 @@ export function CrudManager({
       if (!swap) return;
       await supabase
         .from(table as never)
-        .update({ sort_order: (swap.sort_order as number) ?? 0 } as never)
+        .update({ sort_order: (swap['sort_order'] as number) ?? 0 } as never)
         .eq("id", row.id);
       await supabase
         .from(table as never)
-        .update({ sort_order: (row.sort_order as number) ?? 0 } as never)
+        .update({ sort_order: (row['sort_order'] as number) ?? 0 } as never)
         .eq("id", swap.id);
     },
     onSuccess: invalidate,
@@ -128,7 +128,7 @@ export function CrudManager({
     mutationFn: async (row: Row) => {
       const { error } = await supabase
         .from(table as never)
-        .update({ is_published: !row.is_published } as never)
+        .update({ is_published: !row['is_published'] } as never)
         .eq("id", row.id);
       if (error) throw error;
     },
@@ -170,10 +170,10 @@ export function CrudManager({
               <div className="flex flex-wrap items-center gap-2">
                 <h2 className="truncate font-medium">{String(row[primaryField] ?? "Untitled")}</h2>
                 <Badge
-                  variant={row.is_published ? "secondary" : "outline"}
+                  variant={row['is_published'] ? "secondary" : "outline"}
                   className="rounded-md font-normal"
                 >
-                  {row.is_published ? "Published" : "Draft"}
+                  {row['is_published'] ? "Published" : "Draft"}
                 </Badge>
               </div>
               {secondaryField ? (
@@ -204,7 +204,7 @@ export function CrudManager({
               </Button>
               <Switch
                 aria-label="Toggle published"
-                checked={Boolean(row.is_published)}
+                checked={Boolean(row['is_published'])}
                 onCheckedChange={() => togglePublish.mutate(row)}
               />
               <Button
@@ -266,7 +266,7 @@ export function EditorDialog({
   onOpenChange: (open: boolean) => void;
   title: string;
   fields: Field[];
-  initial?: Record<string, unknown>;
+  initial?: Record<string, unknown> | undefined;
   onSubmit: (values: Record<string, unknown>) => void;
   saving: boolean;
   folder?: string;
@@ -275,7 +275,7 @@ export function EditorDialog({
   const [key, setKey] = useState(0);
 
   // Reset the form whenever the dialog opens for a different record.
-  const initialId = (initial?.id as string) ?? "new";
+  const initialId = (initial?.['id'] as string) ?? "new";
   const [lastId, setLastId] = useState(initialId);
   if (open && lastId !== initialId) {
     setLastId(initialId);

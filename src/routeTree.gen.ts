@@ -13,6 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAchievementsRouteImport } from './routes/admin.achievements'
+import { Route as AdminCertificationsRouteImport } from './routes/admin.certifications'
+import { Route as AdminEducationRouteImport } from './routes/admin.education'
+import { Route as AdminExperienceRouteImport } from './routes/admin.experience'
+import { Route as AdminProjectsRouteImport } from './routes/admin.projects'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +40,31 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAchievementsRoute = AdminAchievementsRouteImport.update({
+  id: '/achievements',
+  path: '/achievements',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCertificationsRoute = AdminCertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEducationRoute = AdminEducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminExperienceRoute = AdminExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProjectsRoute = AdminProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => AdminRoute,
+} as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   id: '/projects/$slug',
   path: '/projects/$slug',
@@ -45,12 +75,22 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
+  '/admin/achievements': typeof AdminAchievementsRoute
+  '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/experience': typeof AdminExperienceRoute
+  '/admin/projects': typeof AdminProjectsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/admin/achievements': typeof AdminAchievementsRoute
+  '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/experience': typeof AdminExperienceRoute
+  '/admin/projects': typeof AdminProjectsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin': typeof AdminIndexRoute
 }
@@ -59,15 +99,50 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
+  '/admin/achievements': typeof AdminAchievementsRoute
+  '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/education': typeof AdminEducationRoute
+  '/admin/experience': typeof AdminExperienceRoute
+  '/admin/projects': typeof AdminProjectsRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/auth' | '/projects/$slug' | '/admin/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/admin/achievements'
+    | '/admin/certifications'
+    | '/admin/education'
+    | '/admin/experience'
+    | '/admin/projects'
+    | '/projects/$slug'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/projects/$slug' | '/admin'
-  id: '__root__' | '/' | '/admin' | '/auth' | '/projects/$slug' | '/admin/'
+  to:
+    | '/'
+    | '/auth'
+    | '/admin/achievements'
+    | '/admin/certifications'
+    | '/admin/education'
+    | '/admin/experience'
+    | '/admin/projects'
+    | '/projects/$slug'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/admin/achievements'
+    | '/admin/certifications'
+    | '/admin/education'
+    | '/admin/experience'
+    | '/admin/projects'
+    | '/projects/$slug'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -107,6 +182,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/achievements': {
+      id: '/admin/achievements'
+      path: '/achievements'
+      fullPath: '/admin/achievements'
+      preLoaderRoute: typeof AdminAchievementsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/certifications': {
+      id: '/admin/certifications'
+      path: '/certifications'
+      fullPath: '/admin/certifications'
+      preLoaderRoute: typeof AdminCertificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/education': {
+      id: '/admin/education'
+      path: '/education'
+      fullPath: '/admin/education'
+      preLoaderRoute: typeof AdminEducationRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/experience': {
+      id: '/admin/experience'
+      path: '/experience'
+      fullPath: '/admin/experience'
+      preLoaderRoute: typeof AdminExperienceRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/projects': {
+      id: '/admin/projects'
+      path: '/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminProjectsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/projects/$slug': {
       id: '/projects/$slug'
       path: '/projects/$slug'
@@ -118,10 +228,20 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAchievementsRoute: typeof AdminAchievementsRoute
+  AdminCertificationsRoute: typeof AdminCertificationsRoute
+  AdminEducationRoute: typeof AdminEducationRoute
+  AdminExperienceRoute: typeof AdminExperienceRoute
+  AdminProjectsRoute: typeof AdminProjectsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAchievementsRoute: AdminAchievementsRoute,
+  AdminCertificationsRoute: AdminCertificationsRoute,
+  AdminEducationRoute: AdminEducationRoute,
+  AdminExperienceRoute: AdminExperienceRoute,
+  AdminProjectsRoute: AdminProjectsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

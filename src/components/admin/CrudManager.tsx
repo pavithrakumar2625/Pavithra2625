@@ -19,7 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MediaField } from "@/components/admin/MediaField";
 import { supabase } from "@/integrations/supabase/client";
 
-export type FieldType = "text" | "textarea" | "number" | "boolean" | "list" | "media";
+export type FieldType = "text" | "textarea" | "number" | "boolean" | "list" | "media" | "select";
 
 export type Field = {
   name: string;
@@ -358,6 +358,20 @@ export function EditorDialog({
                     onCheckedChange={(checked) => set(field.name, checked)}
                   />
                 </div>
+              ) : field.type === "select" ? (
+                <select
+                  id={field.name}
+                  className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm"
+                  value={String(values[field.name] ?? "")}
+                  onChange={(e) => set(field.name, e.target.value)}
+                >
+                  <option value="">Select…</option>
+                  {field.options?.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               ) : field.type === "media" ? (
                 <MediaField
                   folder={folder}

@@ -76,7 +76,7 @@ function Dashboard() {
         {COUNTERS.map((counter) => (
           <Link
             key={counter.table}
-            to={counter.to}
+            to={counter.to as never}
             className="surface-panel lift-on-hover block p-5"
           >
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -121,7 +121,7 @@ function Dashboard() {
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
             <h2 className="font-display text-lg font-semibold">Recent messages</h2>
             <Button asChild size="sm" variant="outline" className="shrink-0 rounded-xl">
-              <Link to="/admin/messages">
+              <Link to={"/admin/messages" as never}>
                 Inbox <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
               </Link>
             </Button>

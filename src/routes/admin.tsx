@@ -36,7 +36,9 @@ export const Route = createFileRoute("/admin")({
   component: AdminLayout,
 });
 
-const NAV = [
+type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
+
+const NAV: NavItem[] = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/admin/projects", label: "Projects", icon: FolderKanban },
   { to: "/admin/experience", label: "Experience", icon: BriefcaseBusiness },
@@ -46,7 +48,7 @@ const NAV = [
   { to: "/admin/skills", label: "Skills", icon: Wrench },
   { to: "/admin/profile", label: "Profile & resume", icon: UserRound },
   { to: "/admin/messages", label: "Messages", icon: Mail },
-] as const;
+];
 
 function AdminLayout() {
   const { session, loading } = useSession();
@@ -85,7 +87,7 @@ function AdminLayout() {
         return (
           <Link
             key={item.to}
-            to={item.to}
+            to={item.to as never}
             onClick={() => setOpen(false)}
             className={cn(
               "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",

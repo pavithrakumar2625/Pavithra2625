@@ -15,7 +15,7 @@ type Message = {
   name: string;
   email: string;
   subject: string;
-  message: string;
+  body: string;
   is_read: boolean;
   created_at: string;
 };
@@ -120,7 +120,7 @@ function MessagesAdmin() {
               <p className="mt-4 text-sm font-medium">{message.subject}</p>
             ) : null}
             <p className="mt-2 whitespace-pre-line text-sm text-muted-foreground">
-              {message.message}
+              {message.body}
             </p>
             <p className="mt-3 text-xs text-muted-foreground">
               {new Date(message.created_at).toLocaleString()}

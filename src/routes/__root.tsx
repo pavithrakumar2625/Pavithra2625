@@ -80,20 +80,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Pavithra K — AI & Data Science Portfolio" },
-      { name: "description", content: "Portfolio of Pavithra K, AI and Data Science engineer building machine learning products." },
+      {
+        name: "description",
+        content:
+          "AI & Data Science portfolio of Pavithra K — showcasing machine learning, data analytics, AI projects, experience, skills, education and certifications.",
+      },
       { name: "author", content: "Pavithra K" },
       { property: "og:title", content: "Pavithra K — AI & Data Science Portfolio" },
-      { property: "og:description", content: "Machine learning projects, experience and certifications by Pavithra K." },
+      {
+        property: "og:description",
+        content:
+          "Machine learning and analytics case studies, experience and credentials from Pavithra K.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Pavithra K" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

@@ -35,15 +35,16 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "AI and Data Science portfolio of Pavithra K: machine learning case studies, analytics dashboards, experience, certifications and resume.",
+          "AI & Data Science portfolio of Pavithra K — showcasing machine learning, data analytics, AI projects, experience, skills, education and certifications.",
       },
       { property: "og:title", content: "Pavithra K — AI & Data Science Portfolio" },
       {
         property: "og:description",
         content:
-          "Machine learning and analytics case studies, experience and credentials from Pavithra K, AI & Data Science engineer.",
+          "Machine learning and analytics case studies, experience and credentials from Pavithra K.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pro-folio-builder-73.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

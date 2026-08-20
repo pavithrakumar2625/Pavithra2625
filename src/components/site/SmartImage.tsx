@@ -14,9 +14,12 @@ export function SmartImage({
   fallback?: React.ReactNode;
 }) {
   const [url, setUrl] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let active = true;
+    setFailed(false);
+    setUrl(null);
     resolveMediaUrl(src).then((value) => {
       if (active) setUrl(value);
     });
@@ -25,6 +28,14 @@ export function SmartImage({
     };
   }, [src]);
 
-  if (!url) return <>{fallback ?? null}</>;
-  return <img src={url} alt={alt} loading="lazy" className={cn(className)} />;
+  if (!url || failed) return <>{fallback ?? null}</>;
+  return (
+    <img
+      src={url}
+      alt={alt}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className={cn(className)}
+    />
+  );
 }

@@ -10,7 +10,8 @@ const cache = new Map<string, string>();
  */
 export async function resolveMediaUrl(ref?: string | null): Promise<string | null> {
   if (!ref) return null;
-  if (/^https?:\/\//.test(ref) || ref.startsWith("data:")) return ref;
+  // Absolute URLs, data URIs and site-relative public assets are already usable.
+  if (/^https?:\/\//.test(ref) || ref.startsWith("data:") || ref.startsWith("/")) return ref;
   const cached = cache.get(ref);
   if (cached) return cached;
   const { data } = await supabase.storage.from(MEDIA_BUCKET).createSignedUrl(ref, 60 * 60 * 24 * 7);

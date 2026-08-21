@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, MoonStar, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { BrandMark } from "@/components/site/BrandMark";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -48,11 +49,6 @@ export function SiteHeader({ name }: { name: string }) {
     };
   }, []);
 
-  const initials = name
-    .split(" ")
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join("");
 
   return (
     <header

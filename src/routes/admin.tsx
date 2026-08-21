@@ -1,3 +1,4 @@
+import { BrandMark } from "@/components/site/BrandMark";
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   Award,

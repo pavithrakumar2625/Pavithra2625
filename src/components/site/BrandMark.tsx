@@ -25,13 +25,14 @@ export function BrandMark({ className }: { className?: string }) {
         <path d="M9 4.5V27.5" />
         {/* P bowl */}
         <path d="M9 4.5h7.5a5.75 5.75 0 0 1 0 11.5H9" />
-        {/* K leg */}
-        <path d="M9 19.5 22 27.5" opacity="0.9" />
+        {/* K legs */}
+        <path d="M9 22.5 20.5 16.5" opacity="0.9" />
+        <path d="M9 22.5 20.5 28.5" opacity="0.9" />
       </g>
       <g fill="currentColor">
         <circle cx="9" cy="4.5" r="2.6" />
-        <circle cx="22" cy="27.5" r="2.6" />
-        <circle cx="9" cy="19.5" r="1.7" opacity="0.75" />
+        <circle cx="20.5" cy="28.5" r="2.4" />
+        <circle cx="20.5" cy="16.5" r="1.8" opacity="0.8" />
       </g>
     </svg>
   );

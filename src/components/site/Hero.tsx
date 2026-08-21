@@ -18,12 +18,6 @@ export function Hero({
   links: { id: string; platform: string; url: string }[];
   resumeUrl: string | null;
 }) {
-  const stats = [
-    { value: profile.stat_projects, label: "Major projects" },
-    { value: profile.stat_internships, label: "Internship" },
-    { value: profile.stat_cgpa, label: "CGPA" },
-    { value: profile.stat_certifications, label: "Certifications" },
-  ];
 
   return (
     <section id="home" className="hero-glow relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
@@ -103,18 +97,6 @@ export function Hero({
         </div>
       </div>
 
-      <div className="mx-auto mt-16 w-full max-w-6xl px-5 sm:px-8">
-        <dl className="surface-panel grid grid-cols-2 divide-y divide-border sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-          {stats.map((stat) => (
-            <div key={stat.label} className="px-6 py-6">
-              <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                {stat.label}
-              </dt>
-              <dd className="mt-2 font-display text-3xl font-semibold">{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
     </section>
   );
 }

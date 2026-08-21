@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, MoonStar, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { BrandMark } from "@/components/site/BrandMark";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -48,11 +49,6 @@ export function SiteHeader({ name }: { name: string }) {
     };
   }, []);
 
-  const initials = name
-    .split(" ")
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join("");
 
   return (
     <header
@@ -65,13 +61,12 @@ export function SiteHeader({ name }: { name: string }) {
     >
       <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:px-8">
         <a href="#home" className="flex min-w-0 items-center gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
-            {initials || "PK"}
-          </span>
+          <BrandMark className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
           <span className="truncate font-display text-sm font-semibold tracking-tight sm:text-base">
             {name}
           </span>
         </a>
+
 
         <div className="flex items-center gap-1">
           <nav className="mr-2 hidden items-center gap-0.5 xl:flex">

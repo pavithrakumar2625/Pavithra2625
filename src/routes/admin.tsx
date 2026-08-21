@@ -1,3 +1,4 @@
+import { BrandMark } from "@/components/site/BrandMark";
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   Award,
@@ -108,9 +109,7 @@ function AdminLayout() {
     <div className="min-h-screen bg-background lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
       <aside className="hidden border-r border-sidebar-border bg-sidebar p-4 lg:flex lg:h-screen lg:flex-col lg:sticky lg:top-0">
         <Link to="/" className="flex items-center gap-3 rounded-xl px-2 py-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
-            PK
-          </span>
+          <BrandMark className="h-9 w-9" />
           <span className="font-display text-sm font-semibold">Admin panel</span>
         </Link>
         <div className="mt-6 flex-1 overflow-y-auto">{sidebar}</div>

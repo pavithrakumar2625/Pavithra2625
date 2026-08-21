@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ascending connected data nodes">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pavithra K brand mark">
   <rect width="64" height="64" rx="14" fill="#6d3ff2"/>
-  <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M15 46 L32 33 L49 18"/>
-    <path d="M32 33 L32 49" opacity="0.55"/>
+  <g transform="translate(16,15)" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M2 2V32"/>
+    <path d="M2 2h8.5a6.8 6.8 0 0 1 0 13.6H2"/>
+    <path d="M2 24 15 17.5"/>
+    <path d="M2 24 15 31"/>
   </g>
-  <g fill="#ffffff">
-    <circle cx="15" cy="46" r="6"/>
-    <circle cx="32" cy="33" r="6"/>
-    <circle cx="49" cy="18" r="7"/>
+  <g fill="#ffffff" transform="translate(16,15)">
+    <circle cx="2" cy="2" r="3.2"/>
+    <circle cx="15" cy="31" r="3.2"/>
   </g>
 </svg>

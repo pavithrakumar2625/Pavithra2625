@@ -74,8 +74,8 @@ function AdminLayout() {
   if (!isAdmin) {
     return (
       <AccessCard
-        title="Not authorised"
-        body="This account does not have administrative access to the portfolio."
+        title="Unauthorized access"
+        body="This account is not the portfolio owner, so the content management area is unavailable. All management actions are additionally blocked at the database level."
         showSignOut
       />
     );

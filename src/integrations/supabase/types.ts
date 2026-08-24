@@ -47,6 +47,42 @@ export type Database = {
         }
         Relationships: []
       }
+      admin_login_attempts: {
+        Row: {
+          alert_sent: boolean
+          attempted_email: string
+          created_at: string
+          id: string
+          ip_address: string | null
+          reason: string
+          status: string
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          alert_sent?: boolean
+          attempted_email: string
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          reason: string
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          alert_sent?: boolean
+          attempted_email?: string
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          reason?: string
+          status?: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       certifications: {
         Row: {
           created_at: string

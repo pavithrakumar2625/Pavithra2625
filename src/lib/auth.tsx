@@ -32,17 +32,10 @@ export function useIsAdmin(userId?: string) {
         .from("user_roles")
         .select("role")
         .eq("user_id", userId!)
-        .eq("role", "admin")
+        .eq("role", "owner")
         .maybeSingle();
       if (error) throw error;
       return Boolean(data);
     },
   });
-}
-
-/** First account to sign up becomes the portfolio owner. Enforced in the database. */
-export async function claimOwnerIfUnclaimed() {
-  const { data, error } = await supabase.rpc("claim_owner");
-  if (error) return false;
-  return Boolean(data);
 }

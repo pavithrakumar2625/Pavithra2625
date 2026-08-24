@@ -557,7 +557,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      claim_owner: { Args: never; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -566,9 +565,10 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: never; Returns: boolean }
+      is_owner: { Args: never; Returns: boolean }
     }
     Enums: {
-      app_role: "admin"
+      app_role: "owner"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -696,7 +696,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin"],
+      app_role: ["owner"],
     },
   },
 } as const

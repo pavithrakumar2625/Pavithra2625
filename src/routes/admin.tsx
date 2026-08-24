@@ -74,8 +74,8 @@ function AdminLayout() {
   if (!isAdmin) {
     return (
       <AccessCard
-        title="Not authorised"
-        body="This account does not have administrative access to the portfolio."
+        title="Unauthorized access"
+        body="This account is not the portfolio owner, so the content management area is unavailable. All management actions are additionally blocked at the database level."
         showSignOut
       />
     );
@@ -188,11 +188,14 @@ function AccessCard({
         <p className="mt-3 text-sm text-muted-foreground">{body}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button asChild className="rounded-xl">
-            <Link to="/auth">Go to sign in</Link>
+            <Link to="/">Return to portfolio</Link>
+          </Button>
+          <Button asChild variant="outline" className="rounded-xl">
+            <Link to="/auth">Owner sign in</Link>
           </Button>
           {showSignOut ? (
             <Button
-              variant="outline"
+              variant="ghost"
               className="rounded-xl"
               onClick={() => supabase.auth.signOut()}
             >

@@ -188,11 +188,14 @@ function AccessCard({
         <p className="mt-3 text-sm text-muted-foreground">{body}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button asChild className="rounded-xl">
-            <Link to="/auth">Go to sign in</Link>
+            <Link to="/">Return to portfolio</Link>
+          </Button>
+          <Button asChild variant="outline" className="rounded-xl">
+            <Link to="/auth">Owner sign in</Link>
           </Button>
           {showSignOut ? (
             <Button
-              variant="outline"
+              variant="ghost"
               className="rounded-xl"
               onClick={() => supabase.auth.signOut()}
             >

@@ -15,6 +15,9 @@ export type Profile = {
   stat_internships: string;
   stat_cgpa: string;
   stat_certifications: string;
+  contact_heading: string;
+  contact_description: string;
+  contact_note: string;
 };
 
 export type Project = {

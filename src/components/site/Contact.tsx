@@ -42,8 +42,11 @@ export function Contact({
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Let's build something with data"
-      description="Open to data science, machine learning and analytics roles, internships and collaborations."
+      title={profile.contact_heading || "Let's build something with data"}
+      description={
+        profile.contact_description ||
+        "Open to data science, machine learning and analytics roles, internships and collaborations."
+      }
     >
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="surface-panel space-y-5 p-6">
@@ -70,6 +73,12 @@ export function Contact({
               </div>
             </div>
           ))}
+
+          {profile.contact_note ? (
+            <p className="rounded-xl border border-border bg-muted/40 p-3 text-sm text-muted-foreground">
+              {profile.contact_note}
+            </p>
+          ) : null}
 
           <div className="flex gap-2 pt-2">
             {links.map((link) => {

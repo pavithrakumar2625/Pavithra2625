@@ -74,9 +74,16 @@ export function Hero({
           </div>
         </div>
 
-        <div className="reveal relative mx-auto w-full max-w-sm">
-          <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" aria-hidden />
-          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-border bg-surface shadow-[var(--shadow-lift)]">
+        <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-sm lg:max-w-md">
+          <div
+            className="absolute -inset-6 -z-10 rounded-full bg-primary/25 blur-[70px]"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-x-6 -bottom-4 -z-10 h-24 rounded-full bg-[var(--gradient-accent)] opacity-25 blur-3xl"
+            aria-hidden
+          />
+          <div className="hero-portrait-enter relative aspect-[4/5] overflow-hidden rounded-[38%_38%_44%_44%/32%_32%_50%_50%] ring-1 ring-primary/20">
             <SmartImage
               src={profile.avatar_url}
               alt={`Portrait of ${profile.full_name}`}
@@ -95,6 +102,7 @@ export function Hero({
             />
           </div>
         </div>
+
       </div>
 
     </section>

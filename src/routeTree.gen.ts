@@ -16,6 +16,7 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminAchievementsRouteImport } from './routes/admin.achievements'
 import { Route as AdminCertificationsRouteImport } from './routes/admin.certifications'
+import { Route as AdminContactRouteImport } from './routes/admin.contact'
 import { Route as AdminEducationRouteImport } from './routes/admin.education'
 import { Route as AdminExperienceRouteImport } from './routes/admin.experience'
 import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
@@ -57,6 +58,11 @@ const AdminAchievementsRoute = AdminAchievementsRouteImport.update({
 const AdminCertificationsRoute = AdminCertificationsRouteImport.update({
   id: '/certifications',
   path: '/certifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminContactRoute = AdminContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminEducationRoute = AdminEducationRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/admin/achievements': typeof AdminAchievementsRoute
   '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/contact': typeof AdminContactRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/admin/achievements': typeof AdminAchievementsRoute
   '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/contact': typeof AdminContactRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/admin/achievements': typeof AdminAchievementsRoute
   '/admin/certifications': typeof AdminCertificationsRoute
+  '/admin/contact': typeof AdminContactRoute
   '/admin/education': typeof AdminEducationRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin/achievements'
     | '/admin/certifications'
+    | '/admin/contact'
     | '/admin/education'
     | '/admin/experience'
     | '/admin/messages'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin/achievements'
     | '/admin/certifications'
+    | '/admin/contact'
     | '/admin/education'
     | '/admin/experience'
     | '/admin/messages'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/admin/achievements'
     | '/admin/certifications'
+    | '/admin/contact'
     | '/admin/education'
     | '/admin/experience'
     | '/admin/messages'
@@ -252,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminCertificationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/contact': {
+      id: '/admin/contact'
+      path: '/contact'
+      fullPath: '/admin/contact'
+      preLoaderRoute: typeof AdminContactRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/education': {
       id: '/admin/education'
       path: '/education'
@@ -307,6 +326,7 @@ declare module '@tanstack/react-router' {
 interface AdminRouteChildren {
   AdminAchievementsRoute: typeof AdminAchievementsRoute
   AdminCertificationsRoute: typeof AdminCertificationsRoute
+  AdminContactRoute: typeof AdminContactRoute
   AdminEducationRoute: typeof AdminEducationRoute
   AdminExperienceRoute: typeof AdminExperienceRoute
   AdminMessagesRoute: typeof AdminMessagesRoute
@@ -319,6 +339,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAchievementsRoute: AdminAchievementsRoute,
   AdminCertificationsRoute: AdminCertificationsRoute,
+  AdminContactRoute: AdminContactRoute,
   AdminEducationRoute: AdminEducationRoute,
   AdminExperienceRoute: AdminExperienceRoute,
   AdminMessagesRoute: AdminMessagesRoute,

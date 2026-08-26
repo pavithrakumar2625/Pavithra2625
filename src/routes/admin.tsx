@@ -48,7 +48,9 @@ const NAV: NavItem[] = [
   { to: "/admin/achievements", label: "Achievements", icon: Trophy },
   { to: "/admin/skills", label: "Skills", icon: Wrench },
   { to: "/admin/profile", label: "Profile & resume", icon: UserRound },
+  { to: "/admin/contact", label: "Contact", icon: AtSign },
   { to: "/admin/messages", label: "Messages", icon: Mail },
+
 ];
 
 function AdminLayout() {

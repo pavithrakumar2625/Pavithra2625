@@ -28,6 +28,7 @@ export type Field = {
   placeholder?: string;
   help?: string;
   options?: { value: string; label: string }[];
+  accept?: string;
   full?: boolean;
 };
 
@@ -375,6 +376,7 @@ export function EditorDialog({
               ) : field.type === "media" ? (
                 <MediaField
                   folder={folder}
+                  accept={field.accept ?? "image/*"}
                   value={(values[field.name] as string) ?? ""}
                   onChange={(next) => set(field.name, next)}
                 />

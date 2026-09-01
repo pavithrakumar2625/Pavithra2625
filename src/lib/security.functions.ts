@@ -20,6 +20,7 @@ export const reportAdminLoginAttempt = createServerFn({ method: "POST" })
       const { logAdminLoginAttempt } = await import("./security.server");
       await logAdminLoginAttempt({
         attemptedEmail: data.attemptedEmail,
+        reason: "non_owner_email",
         request: getRequest(),
       });
     } catch (error) {

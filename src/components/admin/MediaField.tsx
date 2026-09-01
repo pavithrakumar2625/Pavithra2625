@@ -75,7 +75,13 @@ export function MediaField({
       </div>
       {preview && value ? (
         /\.(mp4|webm|mov|m4v)$/i.test(value) ? (
-          <p className="text-xs text-muted-foreground">Video file selected: {value}</p>
+          <video
+            src={value.startsWith("http") || value.startsWith("/") ? value : undefined}
+            controls
+            className="h-36 w-auto max-w-full rounded-xl border border-border"
+          >
+            <track kind="captions" />
+          </video>
         ) : (
           <SmartImage
             src={value}

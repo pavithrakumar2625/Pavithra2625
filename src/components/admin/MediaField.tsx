@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SmartImage } from "@/components/site/SmartImage";
-import { uploadMedia } from "@/lib/media";
+import { resolveMediaUrl, uploadMedia } from "@/lib/media";
 
 export function MediaField({
   value,

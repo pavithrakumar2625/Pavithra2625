@@ -30,6 +30,7 @@ export type Field = {
   options?: { value: string; label: string }[];
   accept?: string;
   full?: boolean;
+  onUploaded?: (path: string, file: File, set: (name: string, value: unknown) => void) => void;
 };
 
 type Row = Record<string, unknown> & { id: string };

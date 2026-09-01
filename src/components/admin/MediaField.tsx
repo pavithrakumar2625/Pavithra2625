@@ -74,14 +74,8 @@ export function MediaField({
         {acceptsVideo ? uploadButton("video") : null}
       </div>
       {preview && value ? (
-        /\.(mp4|webm|mov|m4v)$/i.test(value) ? (
-          <video
-            src={value.startsWith("http") || value.startsWith("/") ? value : undefined}
-            controls
-            className="h-36 w-auto max-w-full rounded-xl border border-border"
-          >
-            <track kind="captions" />
-          </video>
+        /\.(mp4|webm|mov|m4v)(\?|$)/i.test(value) ? (
+          <VideoPreview value={value} />
         ) : (
           <SmartImage
             src={value}

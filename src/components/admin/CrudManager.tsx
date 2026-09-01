@@ -30,6 +30,7 @@ export type Field = {
   options?: { value: string; label: string }[];
   accept?: string;
   full?: boolean;
+  onUploaded?: (path: string, file: File, set: (name: string, value: unknown) => void) => void;
 };
 
 type Row = Record<string, unknown> & { id: string };
@@ -379,6 +380,9 @@ export function EditorDialog({
                   accept={field.accept ?? "image/*"}
                   value={(values[field.name] as string) ?? ""}
                   onChange={(next) => set(field.name, next)}
+                  {...(field.onUploaded
+                    ? { onUploaded: (path: string, file: File) => field.onUploaded!(path, file, set) }
+                    : {})}
                 />
               ) : (
                 <Input

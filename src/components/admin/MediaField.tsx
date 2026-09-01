@@ -87,3 +87,24 @@ export function MediaField({
     </div>
   );
 }
+
+function VideoPreview({ value }: { value: string }) {
+  const [src, setSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    void resolveMediaUrl(value).then((url) => {
+      if (active) setSrc(url);
+    });
+    return () => {
+      active = false;
+    };
+  }, [value]);
+
+  if (!src) return <p className="text-xs text-muted-foreground">Loading video preview…</p>;
+  return (
+    <video src={src} controls className="h-36 w-auto max-w-full rounded-xl border border-border">
+      <track kind="captions" />
+    </video>
+  );
+}

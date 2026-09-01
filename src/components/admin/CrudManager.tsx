@@ -380,6 +380,11 @@ export function EditorDialog({
                   accept={field.accept ?? "image/*"}
                   value={(values[field.name] as string) ?? ""}
                   onChange={(next) => set(field.name, next)}
+                  onUploaded={
+                    field.onUploaded
+                      ? (path, file) => field.onUploaded!(path, file, set)
+                      : undefined
+                  }
                 />
               ) : (
                 <Input

@@ -1,10 +1,12 @@
 import { BrandMark } from "@/components/site/BrandMark";
 import { createFileRoute, Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
+  AtSign,
   Award,
   BriefcaseBusiness,
   FolderKanban,
   GraduationCap,
+  Images,
   LayoutDashboard,
   LogOut,
   Mail,
@@ -49,6 +51,7 @@ const NAV: NavItem[] = [
   { to: "/admin/skills", label: "Skills", icon: Wrench },
   { to: "/admin/profile", label: "Profile & resume", icon: UserRound },
   { to: "/admin/contact", label: "Contact", icon: AtSign },
+  { to: "/admin/media", label: "Project media", icon: Images },
   { to: "/admin/messages", label: "Messages", icon: Mail },
 
 ];

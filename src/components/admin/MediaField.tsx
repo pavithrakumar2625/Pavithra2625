@@ -61,11 +61,15 @@ export function MediaField({
         </Button>
       </div>
       {preview && value ? (
-        <SmartImage
-          src={value}
-          alt="Preview"
-          className="h-28 w-auto rounded-xl border border-border object-cover"
-        />
+        /\.(mp4|webm|mov|m4v)$/i.test(value) ? (
+          <p className="text-xs text-muted-foreground">Video file selected: {value}</p>
+        ) : (
+          <SmartImage
+            src={value}
+            alt="Preview"
+            className="h-28 w-auto rounded-xl border border-border object-cover"
+          />
+        )
       ) : null}
     </div>
   );

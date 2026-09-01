@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useSession } from "@/lib/auth";
+import { reportAdminLoginAttempt } from "@/lib/security.functions";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -43,6 +44,8 @@ function AuthPage() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) {
+      // Fire-and-forget: server logs the denied attempt and alerts the owner.
+      void reportAdminLoginAttempt({ data: { attemptedEmail: email } }).catch(() => {});
       toast.error(error.message);
       return;
     }

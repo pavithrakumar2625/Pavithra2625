@@ -248,11 +248,11 @@
 @utility hero-portrait-img {
   /* Fade edges so no rectangular/circular boundary is visible */
   -webkit-mask-image: radial-gradient(
-    120% 105% at 50% 42%,
-    black 55%,
-    transparent 92%
+    95% 92% at 50% 45%,
+    black 42%,
+    transparent 76%
   );
-  mask-image: radial-gradient(120% 105% at 50% 42%, black 55%, transparent 92%);
+  mask-image: radial-gradient(95% 92% at 50% 45%, black 42%, transparent 76%);
 }
 
 @keyframes portrait-float {

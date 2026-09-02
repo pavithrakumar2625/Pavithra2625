@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SmartImage } from "@/components/site/SmartImage";
+import { SmartVideo } from "@/components/site/SmartVideo";
 import { projectMediaQuery, projectQuery } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -147,11 +148,23 @@ function ProjectDetail() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {media.data.map((item) => (
                 <figure key={item.id} className="surface-panel overflow-hidden">
-                  <SmartImage
-                    src={item.url}
-                    alt={item.caption || p.title}
-                    className="aspect-[16/10] w-full object-cover"
-                  />
+                  {isVideoMedia(item) ? (
+                    <SmartVideo
+                      src={item.url}
+                      className="aspect-[16/10] w-full bg-black object-cover"
+                    />
+                  ) : (
+                    <SmartImage
+                      src={item.url}
+                      alt={item.caption || p.title}
+                      className="aspect-[16/10] w-full object-cover"
+                      fallback={
+                        <div className="flex aspect-[16/10] w-full items-center justify-center bg-muted text-xs text-muted-foreground">
+                          Media unavailable
+                        </div>
+                      }
+                    />
+                  )}
                   {item.caption ? (
                     <figcaption className="border-t border-border px-4 py-3 text-xs text-muted-foreground">
                       {item.caption}
@@ -164,5 +177,11 @@ function ProjectDetail() {
         ) : null}
       </div>
     </main>
+  );
+}
+
+function isVideoMedia(item: { url: string; media_type?: string }) {
+  return (
+    item.media_type === "video" || /\.(mp4|webm|mov|m4v|ogg)(\?|$)/i.test(item.url)
   );
 }

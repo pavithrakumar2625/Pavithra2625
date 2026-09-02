@@ -178,9 +178,16 @@ export function projectMediaQuery(projectId?: string) {
         .select("*")
         .eq("project_id", projectId!)
         .eq("is_published", true)
-        .order("sort_order", { ascending: true });
+        .neq("url", "")
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: true });
       if (error) throw error;
-      return (data ?? []) as { id: string; url: string; caption: string }[];
+      return (data ?? []) as {
+        id: string;
+        url: string;
+        caption: string;
+        media_type: string;
+      }[];
     },
   });
 }

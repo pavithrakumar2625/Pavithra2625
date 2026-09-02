@@ -75,22 +75,27 @@ export function Hero({
         </div>
 
         <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-sm lg:max-w-md">
+          {/* AI-inspired atmosphere behind the portrait only */}
           <div
-            className="absolute -inset-6 -z-10 rounded-full bg-primary/25 blur-[70px]"
+            className="absolute -inset-10 -z-10 rounded-full bg-primary/30 blur-[90px]"
             aria-hidden
           />
           <div
-            className="absolute inset-x-6 -bottom-4 -z-10 h-24 rounded-full bg-[var(--gradient-accent)] opacity-25 blur-3xl"
+            className="absolute -top-10 -right-8 -z-10 h-48 w-48 rounded-full bg-chart-2/25 blur-[70px]"
             aria-hidden
           />
-          <div className="hero-portrait-enter relative aspect-[4/5] overflow-hidden rounded-[38%_38%_44%_44%/32%_32%_50%_50%] ring-1 ring-primary/20">
+          <div
+            className="absolute inset-x-8 -bottom-6 -z-10 h-28 rounded-full bg-[var(--gradient-accent)] opacity-30 blur-3xl"
+            aria-hidden
+          />
+          <div className="hero-portrait relative aspect-[4/5]">
             <SmartImage
               src={profile.avatar_url}
               alt={`Portrait of ${profile.full_name}`}
-              className="h-full w-full object-cover"
+              className="hero-portrait-img h-full w-full object-cover"
               fallback={
-                <div className="grid h-full w-full place-items-center bg-[var(--gradient-accent)]">
-                  <span className="font-display text-6xl font-bold text-primary-foreground">
+                <div className="grid h-full w-full place-items-center">
+                  <span className="font-display text-6xl font-bold text-gradient">
                     {profile.full_name
                       .split(" ")
                       .map((p) => p[0])

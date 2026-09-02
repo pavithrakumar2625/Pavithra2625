@@ -239,22 +239,20 @@
   }
 }
 
-/* Hero portrait: soft entrance + almost imperceptible float. */
-@utility hero-portrait-enter {
-  animation:
-    portrait-in 900ms cubic-bezier(0.22, 1, 0.36, 1) 550ms both,
-    portrait-float 9s ease-in-out 1500ms infinite;
+/* Hero portrait: frameless, blended into the hero background.
+   Visible immediately on load; only a subtle continuous float. */
+@utility hero-portrait {
+  animation: portrait-float 9s ease-in-out infinite;
 }
 
-@keyframes portrait-in {
-  from {
-    opacity: 0;
-    transform: translateY(26px) scale(0.965);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+@utility hero-portrait-img {
+  /* Fade edges so no rectangular/circular boundary is visible */
+  -webkit-mask-image: radial-gradient(
+    120% 105% at 50% 42%,
+    black 55%,
+    transparent 92%
+  );
+  mask-image: radial-gradient(120% 105% at 50% 42%, black 55%, transparent 92%);
 }
 
 @keyframes portrait-float {
@@ -268,7 +266,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-portrait-enter {
-    animation: portrait-in 1ms linear both;
+  .hero-portrait {
+    animation: none;
   }
 }

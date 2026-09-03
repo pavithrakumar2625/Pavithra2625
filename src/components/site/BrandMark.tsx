@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import pkLogoAsset from "@/assets/pk-logo.png.asset.json";
 
 /**
  * Personal brand mark for Pavithra K — luxury PK monogram.
@@ -9,10 +8,12 @@ import pkLogoAsset from "@/assets/pk-logo.png.asset.json";
 export function BrandMark({ className }: { className?: string }) {
   return (
     <img
-      src={pkLogoAsset.url}
+      src="/pk-logo.png"
       alt="Pavithra K brand mark"
-      width={1024}
-      height={1024}
+      width={256}
+      height={256}
+      loading="eager"
+      decoding="sync"
       className={cn("rounded-lg object-cover shadow-sm ring-1 ring-border/60", className)}
     />
   );

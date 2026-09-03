@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Menu, MoonStar, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";

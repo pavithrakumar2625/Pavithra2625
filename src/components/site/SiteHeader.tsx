@@ -96,9 +96,6 @@ export function SiteHeader({ name }: { name: string }) {
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
           </Button>
 
-          <Button asChild variant="outline" size="sm" className="ml-1 hidden rounded-xl sm:inline-flex">
-            <Link to="/auth">Owner login</Link>
-          </Button>
 
           <Button
             variant="ghost"
@@ -130,13 +127,6 @@ export function SiteHeader({ name }: { name: string }) {
                 {item.label}
               </a>
             ))}
-            <Link
-              to="/auth"
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-primary"
-            >
-              Owner login
-            </Link>
           </nav>
         </div>
       ) : null}

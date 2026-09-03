@@ -93,6 +93,7 @@ export function Hero({
               src={profile.avatar_url}
               alt={`Portrait of ${profile.full_name}`}
               className="hero-portrait-img h-full w-full object-cover"
+              priority
               fallback={
                 <div className="grid h-full w-full place-items-center">
                   <span className="font-display text-6xl font-bold text-gradient">

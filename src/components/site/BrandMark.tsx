@@ -1,39 +1,19 @@
 import { cn } from "@/lib/utils";
+import pkLogo from "@/assets/pk-logo.png";
 
 /**
- * Personal brand mark for Pavithra K.
- * Geometric hybrid: the bowl + stem of a "P" whose lower stem branches into the
- * diagonal legs of a "K", punctuated with data nodes for a subtle AI/data cue.
- * Uses currentColor so it adapts to dark/light themes.
+ * Personal brand mark for Pavithra K — luxury PK monogram.
+ * Rendered as a small rounded tile so the deep-navy logo background
+ * reads as an intentional app-icon chip in both light and dark themes.
  */
 export function BrandMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      role="img"
-      aria-label="Pavithra K brand mark"
-      className={cn("text-primary", className)}
-      fill="none"
-    >
-      <g
-        stroke="currentColor"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {/* stem */}
-        <path d="M9 4.5V27.5" />
-        {/* P bowl */}
-        <path d="M9 4.5h7.5a5.75 5.75 0 0 1 0 11.5H9" />
-        {/* K legs */}
-        <path d="M9 22.5 20.5 16.5" opacity="0.9" />
-        <path d="M9 22.5 20.5 28.5" opacity="0.9" />
-      </g>
-      <g fill="currentColor">
-        <circle cx="9" cy="4.5" r="2.6" />
-        <circle cx="20.5" cy="28.5" r="2.4" />
-        <circle cx="20.5" cy="16.5" r="1.8" opacity="0.8" />
-      </g>
-    </svg>
+    <img
+      src={pkLogo}
+      alt="Pavithra K brand mark"
+      width={1024}
+      height={1024}
+      className={cn("rounded-lg object-cover shadow-sm ring-1 ring-border/60", className)}
+    />
   );
 }
